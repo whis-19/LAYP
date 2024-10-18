@@ -9,12 +9,13 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/Drivers/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "C:\\webdrivers\\chromedriver.exe");
             
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
 
             driver = new ChromeDriver(options);
+            
         }
         return driver;
     }
