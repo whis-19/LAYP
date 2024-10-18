@@ -2,7 +2,7 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 
-import config.WebDriverSetup;
+import config.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -11,14 +11,14 @@ import io.cucumber.java.en.When;
 import pages.LoginPage;
 import utils.DBConnection;
 
-public class LoginStepsTest {
+public class LoginSteps {
 
 	WebDriver driver;
     LoginPage loginPage;
 
     @Before
     public void setUp() throws InterruptedException {
-        driver = WebDriverSetup.getDriver();
+        driver = DriverFactory.getDriver();
         loginPage = new LoginPage(driver);
         
     }
@@ -28,19 +28,11 @@ public class LoginStepsTest {
         driver.get("https://member.daraz.pk/user/login");
     }
 
-    @When("the user enters valid credentials")
-    public void user_enters_valid_credentials() throws InterruptedException 
-    {
-    	
-        loginPage.enterUsername("Ali255");
-        loginPage.enterPassword("Ahmed3722");
-        loginPage.clickLogin();
-    }
-    
+
     @When("the user enters valid credentials from DB")
     public void user_enters_credentials_from_db() throws Exception {
-        String username = DBConnection.getTestData("SELECT username FROM test_cases_data WHERE id=2");
-        String password = DBConnection.getTestData("SELECT password FROM test_cases_data WHERE id=2");
+        String username = DBConnection.getTestData("SELECT username FROM test_cases_data WHERE id=user1");
+        String password = DBConnection.getTestData("SELECT password FROM test_cases_data WHERE id=user2");
         
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
@@ -56,7 +48,7 @@ public class LoginStepsTest {
 
     @After
     public void tearDown() {
-        WebDriverSetup.quitDriver();
+        DriverFactory.quitDriver();
     }
 
 }
