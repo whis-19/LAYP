@@ -2,7 +2,7 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 
-import config.WebDriverSetup;
+import config.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -11,14 +11,14 @@ import io.cucumber.java.en.When;
 import pages.LoginPage;
 import utils.DBConnection;
 
-public class LoginStepsTest {
+public class LoginSteps {
 
 	WebDriver driver;
     LoginPage loginPage;
 
     @Before
     public void setUp() throws InterruptedException {
-        driver = WebDriverSetup.getDriver();
+        driver = DriverFactory.getDriver();
         loginPage = new LoginPage(driver);
         
     }
@@ -56,7 +56,7 @@ public class LoginStepsTest {
 
     @After
     public void tearDown() {
-        WebDriverSetup.quitDriver();
+        DriverFactory.quitDriver();
     }
 
 }
