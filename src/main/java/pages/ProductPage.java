@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.*;
 
 public class ProductPage {
-    private WebDriver driver;
+    private WebDriver driver = null;
 
     public ProductPage(WebDriver driver) {
         this.driver = driver;

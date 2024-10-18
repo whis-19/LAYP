@@ -13,19 +13,20 @@ import utils.DBConnection;
 
 public class LoginSteps {
 
-	WebDriver driver;
+	WebDriver driver = null;
     LoginPage loginPage;
 
     @Before
     public void setUp() throws InterruptedException {
+    	
         driver = DriverFactory.getDriver();
-        loginPage = new LoginPage(driver);
         
     }
     
     @Given("the user is on the login page")
     public void user_is_on_login_page() throws InterruptedException {
         driver.get("https://member.daraz.pk/user/login");
+        loginPage = new LoginPage(driver);
     }
 
     @When("the user enters valid credentials")

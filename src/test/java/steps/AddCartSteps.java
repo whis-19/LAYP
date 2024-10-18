@@ -8,7 +8,7 @@ import pages.AddCartPage;
 import static org.junit.Assert.*;
 
 public class AddCartSteps {
-    private WebDriver driver;
+    private WebDriver driver = null;
     private AddCartPage addCartPage;
 
     @Given("the user is on the Daraz homepage")

@@ -8,7 +8,7 @@ import pages.ProductPage;
 import static org.junit.Assert.*;
 
 public class OpenProductSteps {
-    private WebDriver driver;
+    private WebDriver driver = null;
     private ProductPage productPage;
 
     @Given("the user is on the Daraz homepage")
