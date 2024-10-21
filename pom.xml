@@ -99,20 +99,7 @@
 		</dependency>
 
 
-		<!-- SLF4J API -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.32</version> <!-- You can use a higher version if needed -->
-		</dependency>
 
-		<!-- Logback Classic (SLF4J binding) -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.2.10</version> <!-- Ensure this version matches your SLF4J
-			version -->
-		</dependency>
 
 
 		<!-- MariaDB -->
