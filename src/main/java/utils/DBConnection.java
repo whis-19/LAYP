@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DBConnection {
-    private static final String DB_URL = "jdbc:mariadb://localhost:3306/uitestautomation";
+    private static final String DB_URL = "jdbc:mariadb://localhost:3306/sqe_test";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "3718";
+    private static final String DB_PASSWORD = "3722";
 
     public static Connection getConnection() throws Exception {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);

@@ -14,7 +14,7 @@ public class SearchPage {
 
     public SearchPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     By searchBar = By.xpath("//input[@type='search']");
