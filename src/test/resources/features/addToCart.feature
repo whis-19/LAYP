@@ -5,3 +5,4 @@ Feature: Add Item to Cart
     When the user clicks on the "Add to Cart" button
     Then the product should be added to the cart
 
+
