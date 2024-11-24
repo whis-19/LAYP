@@ -44,3 +44,91 @@
 25. **Edge case for special characters in title**: Verify the API allows special characters in the title field. (*ECP - Edge Case*)
 26. **Edge case for non-ASCII characters in title**: Ensure the API supports non-ASCII characters (e.g., emojis, Arabic) in the title. (*ECP - Edge Case*)
 27. **Edge case for inactive user ID**: Confirm creating/updating a To-Do with an inactive user ID is rejected with a 422 status. (*ECP - Edge Case*)
+
+---
+
+# Performance Testing Code Descriptions
+
+## Code 1: Fetching Users with GET Request
+
+### Description
+This script tests the performance of the **GET** `/users` endpoint, which retrieves a list of users from the GoREST API.
+
+### Key Points
+- **Options**: 
+  - Virtual Users (VUs): 30 users simultaneously.
+  - Duration: 20 seconds.
+- **Endpoint**: `/users`.
+- **Authorization**: Uses a Bearer token for authentication.
+- **Validation**: 
+  - Confirms that the status code is 200 (`OK`).
+  - Ensures the response time is less than 500ms.
+
+### Use Case
+This test measures the API's ability to handle concurrent user requests efficiently and ensures fast response times.
+
+---
+
+## Code 2: Deleting a Specific User with DELETE Request
+
+### Description
+This script tests the **DELETE** `/users/{id}` endpoint by deleting a specific user with their unique ID.
+
+### Key Points
+- **Options**: 
+  - Virtual Users (VUs): 30 users simultaneously.
+  - Duration: 20 seconds.
+- **Endpoint**: `/users/{id}` (where `{id}` is the unique user ID).
+- **Authorization**: Requires a Bearer token.
+- **Validation**: 
+  - Confirms the response status is in the 2xx range (indicating a successful deletion).
+
+### Use Case
+This test evaluates the API's capability to handle multiple delete requests concurrently and verify that it processes deletions correctly.
+
+---
+
+## Code 3: Creating a User with POST Request
+
+### Description
+This script tests the **POST** `/users` endpoint to create a new user with randomized details.
+
+### Key Points
+- **Options**: 
+  - Virtual Users (VUs): 20 users.
+  - Duration: 15 seconds.
+- **Endpoint**: `/users`.
+- **Payload**: 
+  - A JSON body with random values for `name`, `email`, `gender`, and `status`.
+- **Authorization**: Bearer token and `Content-Type: application/json` header.
+- **Validation**: 
+  - Confirms that the response status is 201 (`Created`).
+  - Ensures the response body includes `name` and `email` attributes.
+
+### Use Case
+This test evaluates the API's ability to handle user creation under load while ensuring valid responses and expected behavior.
+
+---
+
+## Code 4: Fetching Posts with GET Request
+
+### Description
+This script tests the **GET** `/posts` endpoint, which retrieves a list of posts from the GoREST API.
+
+### Key Points
+- **Options**: 
+  - Virtual Users (VUs): 25 users.
+  - Duration: 15 seconds.
+- **Endpoint**: `/posts`.
+- **Authorization**: Requires a Bearer token.
+- **Validation**: 
+  - Confirms the response status is 200 (`OK`).
+  - Verifies the response time is less than 400ms.
+  - Checks that the response body is not empty.
+
+### Use Case
+This test ensures that the API can return a valid list of posts under concurrent user requests while maintaining optimal response times.
+
+
+
+
