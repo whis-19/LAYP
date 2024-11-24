@@ -1,6 +1,6 @@
-# layp (Looks Like a You Problem)
+# LAYP (Looks Like a You Problem)
 
-Welcome to the **layp** repository! This project is all about quality assurance and testing, making sure your software doesn’t just work, but works well. Let’s get into it!
+Welcome to the **LAYP** repository! This project is all about quality assurance and testing, making sure your software doesn’t just work, but works well. Let’s get into it!
 
 ## 📁 Project Structure
 
@@ -83,7 +83,11 @@ Got a suggestion or a bug report? Make a PR, but remember: if it’s broken, it�
 
 ## 📫 Contact
 
-For any questions, hit me up at [your-email@example.com](mailto:your-email@example.com).
+For any questions, hit us up at 
+[f223714@cfd.nu.edu.pk](mailto:f223714@cfd.nu.edu.pk)
+[f223722@cfd.nu.edu.pk](mailto:f223722@cfd.nu.edu.pk)
+
+
 
 ---
 
