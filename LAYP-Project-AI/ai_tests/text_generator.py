@@ -13,9 +13,7 @@ class TextGenerator:
         self.lstm_units = lstm_units
 
     def load_data(self):
-        """
-        Load and tokenize text data.
-        """
+
         with open(self.data_path, "r") as file:
             text = file.read()
 
@@ -38,9 +36,7 @@ class TextGenerator:
         return inputs, labels, total_words, max_seq_len
 
     def build_model(self, total_words):
-        """
-        Build the LSTM-based text generation model.
-        """
+
         model = tf.keras.Sequential([
             tf.keras.layers.Embedding(total_words, self.embedding_dim, input_length=self.max_sequence_len - 1),
             tf.keras.layers.LSTM(self.lstm_units),
@@ -50,18 +46,14 @@ class TextGenerator:
         return model
 
     def train_model(self, epochs=10):
-        """
-        Train the text generation model.
-        """
+
         inputs, labels, total_words, max_seq_len = self.load_data()
         self.max_sequence_len = max_seq_len
         self.model = self.build_model(total_words)
         self.model.fit(inputs, labels, epochs=epochs, verbose=2)
 
     def generate_text(self, seed_text, next_words=20):
-        """
-        Generate text based on a seed text.
-        """
+
         for _ in range(next_words):
             token_list = self.tokenizer.texts_to_sequences([seed_text])[0]
             token_list = pad_sequences([token_list], maxlen=self.max_sequence_len - 1, padding="pre")
